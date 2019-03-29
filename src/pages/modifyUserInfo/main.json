@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "i-panel": "/static/iView/panel/index",
+        "i-avatar": "/static/iView/avatar/index",
+        "i-toast": "/static/iView/toast/index",
+        "i-modal": "/static/iView/modal/index"
+    },
+    "navigationBarTitleText": "修改信息"
+}

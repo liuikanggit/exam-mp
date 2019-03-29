@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "i-input": "/static/iView/input/index",
+        "i-panel": "/static/iView/panel/index",
+        "i-card": "/static/iView/card/index",
+        "i-modal": "/static/iView/modal/index",
+        "i-toast": "/static/iView/toast/index"
+    },
+    "navigationBarTitleText": "搜索班级"
+}

@@ -1,0 +1,36 @@
+.theme-info-color{
+    color: #2d8cf0;
+}
+.theme-info2-color{
+    color: #5cadff;
+}
+.theme-info3-color{
+    color: #2b85e4;
+}
+.theme-success-color{
+    color: #19be6b;
+}
+.theme-warning-color{
+    color: #ff9900;
+}
+.theme-error-color{
+    color: #ed3f14;
+}
+
+.theme-title-color{
+    color: #1c2438;
+}
+.theme-content-color{
+    color: #495060;
+}
+.theme-background{
+    background-color:#f8f8f9;
+}
+
+.theme-border{
+    border :1px#dddee1 solid;
+}
+
+.h-30{
+    height: 30rpx;
+}

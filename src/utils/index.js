@@ -3,6 +3,16 @@ function formatNumber (n) {
   return str[1] ? str : `0${str}`
 }
 
+export function formatDate (date) {
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+
+  const t1 = [year, month, day].map(formatNumber).join('-')
+
+  return `${t1}`
+}
+
 export function formatTime (date) {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -19,6 +29,7 @@ export function formatTime (date) {
 }
 
 export default {
+  formatDate,
   formatNumber,
   formatTime
 }

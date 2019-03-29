@@ -1,0 +1,3 @@
+<view class="i-class i-avatar i-avatar-{{ shape }} i-avatar-{{ size }} {{ src ? 'i-avatar-image' : '' }}">
+    <image src="{{ src }}" binderror="binderror" ></image>
+</view>

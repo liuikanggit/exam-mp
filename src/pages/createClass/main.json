@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "i-avatar": "/static/iView/avatar/index",
+        "i-toast": "/static/iView/toast/index"
+    },
+    "navigationBarTitleText": "创建班群"
+}

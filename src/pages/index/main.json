@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "i-spin": "/static/iView/spin/index"
+    },
+    "navigationBarTitleText": "加载中..."
+}

@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "i-panel": "/static/iView/panel/index"
+    },
+    "navigationBarTitleText": "帮助中心"
+}

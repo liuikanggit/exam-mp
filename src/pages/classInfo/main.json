@@ -1,0 +1,15 @@
+{
+    "usingComponents": {
+        "i-avatar": "/static/iView/avatar/index",
+        "i-notice-bar": "/static/iView/notice-bar/index",
+        "i-panel": "/static/iView/panel/index",
+        "i-swipeout": "/static/iView/swipeout/index",
+        "i-load-more": "/static/iView/load-more/index",
+        "i-toast": "/static/iView/toast/index",
+        "i-modal": "/static/iView/modal/index",
+        "i-action-sheet": "/static/iView/action-sheet/index",
+        "i-message": "/static/iView/message/index"
+    },
+    "navigationBarTitleText": "班级信息",
+    "enablePullDownRefresh":true
+}

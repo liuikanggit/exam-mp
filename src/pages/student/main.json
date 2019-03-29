@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "i-tab-bar": "/static/iView/tab-bar/index",
+        "i-tab-bar-item": "/static/iView/tab-bar-item/index",
+        "i-toast": "/static/iView/toast/index",
+        "i-message": "/static/iView/message/index"
+    },
+    "navigationBarTitleText": "学生主页",
+    "enablePullDownRefresh":true
+}

@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "i-load-more": "/static/iView/load-more/index",
+        "i-spin": "/static/iView/spin/index",
+        "i-action-sheet": "/static/iView/action-sheet/index"
+    },
+    "navigationBarTitleText": "我的班群",
+    "enablePullDownRefresh":true,
+    "onReachBottomDistance":10
+}
