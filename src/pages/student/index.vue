@@ -5,10 +5,10 @@
             <mine></mine>
         </div>
         <div v-show="index ==='1'" class="content">
+            
         </div>
         <div v-show="index ==='2'" class="content">
-        </div>
-        <div v-show="index ==='3'" class="content">
+            <exam></exam>
         </div>
         <div class="tabBar">
             <i-tab-bar :current="index" @change="handleChange">
@@ -23,6 +23,7 @@
 
 <script>
 import mine from '@/components/mine'
+import exam from '@/components/exam'
 import lkLike from '@/components/lk-like'
 import {mapState,mapMutations} from 'vuex'
 import {SET_INDEX} from '@/store/mutation-types.js'
@@ -44,6 +45,7 @@ export default {
     },
     components:{
         mine,
+        exam,
         'lk-like':lkLike
     }
 }

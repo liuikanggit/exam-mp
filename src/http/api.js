@@ -27,6 +27,8 @@ const disbandClass = (params) => http('/t/class',DELETE,params,'正在解散班�
 const exitClass = (params) => http((store.state.userType==0?'/s':'/t')+'/exit/class',DELETE,params,'正在退出班级~')
 const getOtherUserInfo = (params) => http((store.state.userType==0?'/s':'/t')+'/info/'+params,GET,null,1)
 
+const getExam = (params) => http((store.state.userType==0?'/s':'/t')+'/exam',GET,params,'正在搜索考试..')
+
 const api = {
     login,
     getUserInfo,
@@ -43,7 +45,8 @@ const api = {
     outUser,
     disbandClass,
     exitClass,
-    getOtherUserInfo
+    getOtherUserInfo,
+    getExam
 }
 
 export default api

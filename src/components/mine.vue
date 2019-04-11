@@ -137,10 +137,10 @@ export default {
             margin-top 10rpx
             color #222
             font-weight 800
-            text-shadow -1px 0 5px #dcdcdc,
-                0 1px 3px #dcdcdc,
-                1px 0 3px #dcdcdc,
-                0 -1px 3px #dcdcdc
+            text-shadow -1rpx 0 5rpx rgba(255,255,255,0.2),
+                0 1rpx 3rpx rgba(255,255,255,0.2),
+                1rpx 0 3rpx rgba(255,255,255,0.2),
+                0 -1rpx 3rpx rgba(255,255,255,0.2)
             border-radius 8rpx
             padding 8rpx 16rpx
         .desc
@@ -171,7 +171,7 @@ export default {
         position absolute
         overflow hidden
         top -40rpx
-        filter blur(10rpx)
+        filter blur(8rpx)
         z-index -1
         background #fff
 .group

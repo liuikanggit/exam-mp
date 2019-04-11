@@ -98,6 +98,8 @@ export default {
     
 }
 </script>
+
+
 <style lang="stylus" scoped>
 .wrap
     height 100%
