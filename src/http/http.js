@@ -1,5 +1,5 @@
 import store from '../store/'
-import {SET_TOKEN,REMOVE_ALL_FORM_ID} from '../store/mutation-types'
+import {SET_TOKEN,REMOVE_ALL_FORM_ID,SET_PAGE} from '../store/mutation-types'
 import  host  from './config'
 
 const http = (url,method,data,title) => {
@@ -26,16 +26,18 @@ const http = (url,method,data,title) => {
         header['content-type'] = 'application/json'
     }else{
         header['content-type'] = 'application/x-www-form-urlencoded'
+
+        /** 收集formid */
+        let formId = store.state.formId;
+        if(formId && formId != '[]'){
+            if(data === undefined || data === null){
+                data = {}
+            }
+            data.formId = formId;
+        }
     }
 
-    /** 收集formid */
-    let formId = store.state.formId;
-    if(formId && formId !== []){
-        if(data === undefined || data === null){
-            data = {}
-        }
-        data.formId = formId;
-    }
+
 
     /** 请求 */
     return new Promise((resolve,reject) => {
@@ -56,13 +58,32 @@ const http = (url,method,data,title) => {
                 }
                 
                 /** 清空formid */
-                store.commit(REMOVE_ALL_FORM_ID)
+                if(method !== 'GET') {
+                    store.commit(REMOVE_ALL_FORM_ID)
+                }
+                
                 /** 获取响应的数据 */
                 let result = res.data
                 /** 如果code为-4，等于token无效 */
                 if(result.code === -4 || result.code === -3){
                     /** 清空token */
                     store.commit(SET_TOKEN,"")
+                    /** 记录当前页面 */
+                    let pages = getCurrentPages()
+                    let page = '/'+pages[0].route
+                    let options = pages[0].options
+                    let f = true
+                    for(let key in options){
+                        if(f){
+                            page+='?'
+                            f= false
+                        }else{
+                            page+='&'
+                        }
+                        page += key+'='+options[key]
+                    }
+                    console.log(pages,page)
+                    store.commit(SET_PAGE,page)
                     /** 跳转登录页面 */
                     mpvue.reLaunch({
                         url:'/pages/login/main'

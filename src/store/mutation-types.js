@@ -18,3 +18,8 @@ export const CLEAR_ALL = 'CLEAR_ALL'
 export const PUSH_LIKE_USER = 'PUSH_LIKE_USER'
 
 export const SET_ERROR_IMAGE = 'SET_ERROR_IMAGE'
+
+export const SET_PAGE = 'SET_PAGE'
+
+export const SET_EXAM_COUNT = 'SET_EXAM_COUNT'
+export const SET_EXAMING = 'SET_EXAMING'

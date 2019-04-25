@@ -11,7 +11,9 @@
     "pages/feedback/main",
     "pages/classInfo/main",
     "pages/modifyUserInfo/main",
-    "pages/userInfo/main"
+    "pages/userInfo/main",
+    "pages/examInfo/main",
+    "pages/exam/main"
   ],
   "usingComponents": {
     "i-button": "/static/iView/button/index",

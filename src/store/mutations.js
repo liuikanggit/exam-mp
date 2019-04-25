@@ -45,6 +45,15 @@ const mutations = {
     },
     [types.SET_ERROR_IMAGE](state,v){
         state.errorImage = v
+    },
+    [types.SET_PAGE](state,v){
+        state.page = v
+    },
+    [types.SET_EXAM_COUNT](state,v){
+        state.examCount = v
+    },
+    [types.SET_EXAMING](state,v){
+        state.examing = v
     }
 }
 

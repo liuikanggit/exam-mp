@@ -5,6 +5,7 @@ import api from '@/http/api'
 import host from '@/http/config'
 import 'font-awesome/css/font-awesome.min.css'
 import '../static/style/index.wxss'
+import '../static/style/iconfont.wxss'
 import {$Toast,$Message} from '../static/iView/base/index'
 
 

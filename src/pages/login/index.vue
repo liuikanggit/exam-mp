@@ -14,8 +14,9 @@
 
 <script>
 import {mapState,mapMutations} from 'vuex'
-import {SET_USER_TYPE,SET_TOKEN} from '@/store/mutation-types'
+import {SET_USER_TYPE,SET_TOKEN,SET_PAGE} from '@/store/mutation-types'
 import lkButton from '@/components/lk-button'
+import { setTimeout } from 'timers';
 
 export default {
     data(){
@@ -28,13 +29,14 @@ export default {
     },
     computed: {
         ...mapState([
-            'userType','errorImage','userInfo'
+            'userType','errorImage','userInfo','page'
         ])
     },
     methods: {
         ...mapMutations({
             setUserType:SET_USER_TYPE,
-            setToken:SET_TOKEN
+            setToken:SET_TOKEN,
+            setPage:SET_PAGE
         }),
         handleChange(e){
             this.userTypeData = e.mp.detail.key
@@ -84,8 +86,24 @@ export default {
                 }else{
                     url = "/pages/teacher/main"
                 }
+                let that = this
                 mpvue.redirectTo({
-                    url:url
+                    url:url,
+                    success:()=>{
+                        if(that.page){
+                            console.log('跳转'+that.page)
+                            setTimeout(()=>{
+                                mpvue.navigateTo({
+                                    url:that.page,
+                                    success:()=>{
+                                        console.log('跳转成功')
+                                        that.setPage('')
+                                    }
+                                })
+                            },300)
+                           
+                        }
+                    }
                 })
             })
         }
@@ -93,7 +111,6 @@ export default {
     onLoad(){
         this.userTypeData = this.userType
         this.changeTitle()
-        console.log(this.$store.state)
     }
     
 }

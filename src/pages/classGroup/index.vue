@@ -149,11 +149,14 @@ export default {
     },
     onPullDownRefresh(e){
        this.page=0
+       this.totalPages=1
        this.getClassList()
     },
     onReachBottom(e){
-        console.log("加载更多")
-        this.getClassList()
+        if(this.page!=0&&this.page < this.totalPages){
+            console.log("加载更多")
+            this.getClassList()
+        }
     }
 }
 </script>

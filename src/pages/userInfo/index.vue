@@ -35,12 +35,7 @@
             </div>
         </div>
         <div v-else>
-            <i-spin v-if="!error" fix></i-spin>
-            <div v-else class="error" @click="refresh">
-                <i class="fa fa-exclamation-triangle icon" aria-hidden="true"></i>
-                <br/>
-                <span class="text">加载失败,点击刷新</span>
-            </div>
+            <lk-load :error="error" @refresh="loadUserInfo"></lk-load>
         </div>
         <i-toast id="toast" />
     </div>
@@ -51,6 +46,8 @@
 import {mapState} from 'vuex'
 import lkButton from '@/components/lk-button'
 import lkAvatar from '@/components/lk-avatar'
+import lkLoad from '@/components/lk-load'
+
 import {formatTime} from '@/utils/index'
 export default {
     onLoad({id}){
@@ -66,14 +63,12 @@ export default {
     },
     components:{
         'lk-button':lkButton,
-        'lk-avatar':lkAvatar
+        'lk-avatar':lkAvatar,
+        'lk-load':lkLoad
     },
     methods: {
-        refresh(){
-            this.error = false
-            this.loadUserInfo()
-        },
         loadUserInfo(){
+            this.error&&(this.error=false)
             this.$api.getOtherUserInfo(this.id).then(u =>{
                 this.u = u
                 console.log(u)
@@ -87,6 +82,7 @@ export default {
             })
         },
         like(){
+           
             this.$api.likeUser({
                 userId:this.id
             }).then(num =>{
@@ -124,6 +120,9 @@ export default {
             }
             return '未知'
         }
+    },
+    onPullDownRefresh(e){
+        this.loadUserInfo()
     }
 }
 </script>
@@ -155,16 +154,4 @@ export default {
         right 0
         left 0
         bottom 0
-    .error
-        position fixed
-        top 50%
-        left 50%
-        transform translate(-50%,-50%)
-        text-align center
-        .icon
-            font-size 100rpx
-            color #ff9900
-            margin-bottom 20rpx
-        .text
-            color #999
 </style>

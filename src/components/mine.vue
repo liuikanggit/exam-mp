@@ -125,8 +125,6 @@ export default {
         .avatar
             display block
             margin 50rpx auto 10rpx
-            width 60px
-            height 60px
             border-radius 50%
             overflow hidden
             border: 2px solid #fff

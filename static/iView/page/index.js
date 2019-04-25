@@ -25,7 +25,6 @@ Component({
             value: false
         }
     },
-
     methods: {
         handleChange (type) {
             this.triggerEvent('change', {

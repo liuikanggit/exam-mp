@@ -27,7 +27,11 @@ const disbandClass = (params) => http('/t/class',DELETE,params,'正在解散班�
 const exitClass = (params) => http((store.state.userType==0?'/s':'/t')+'/exit/class',DELETE,params,'正在退出班级~')
 const getOtherUserInfo = (params) => http((store.state.userType==0?'/s':'/t')+'/info/'+params,GET,null,1)
 
-const getExam = (params) => http((store.state.userType==0?'/s':'/t')+'/exam',GET,params,'正在搜索考试..')
+const getExam = (params) => http((store.state.userType==0?'/s':'/t')+'/exam',GET,params)
+const getExamDetail = (params) => http((store.state.userType==0?'/s':'/t')+'/exam/'+params,GET,null,'正在获取考试详细信息..')
+const startExam = (params) => http('/s/start/exam/'+params,GET,null,'正在获取考试题目..')
+const saveExam = (params) => http('/s/save/exam',POST,params)
+const submitExam = (params) => http('/s/submit/exam',POST,params,'正在提交试卷')
 
 const api = {
     login,
@@ -46,7 +50,11 @@ const api = {
     disbandClass,
     exitClass,
     getOtherUserInfo,
-    getExam
+    getExam,
+    getExamDetail,
+    startExam,
+    saveExam,
+    submitExam
 }
 
 export default api

@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+        "i-spin": "/static/iView/spin/index",
+        "i-notice-bar": "/static/iView/notice-bar/index",
+        "i-cell-group": "/static/iView/cell-group/index",
+        "i-cell": "/static/iView/cell/index",
+        "i-button": "/static/iView/button/index",
+        "i-load-more": "/static/iView/load-more/index"
+    },
+    "navigationBarTitleText": "考试详情",
+    "enablePullDownRefresh":true
+}

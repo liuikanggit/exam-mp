@@ -1,5 +1,5 @@
 <template>
-        <i-button formType="submit" :type="type" :open-type="openType" @click="submit" @getuserinfo="getUserInfo"
+        <i-button formType="submit" :type="type" :disabled="disabled" :open-type="openType" @click="submit" @getuserinfo="getUserInfo"
         @getFormId="getFormId"><slot></slot>
         </i-button>
 </template>
@@ -14,6 +14,11 @@ export default {
             require:false,
             type:String,
             default:'primary'
+        },
+        disabled:{
+            require:false,
+            type:Boolean,
+            default:false
         }
     },
     methods:{

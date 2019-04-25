@@ -7,7 +7,10 @@ const state = {
     indexShow:false,
     date:'',
     likeUsers:[],
-    errorImage:[]
+    errorImage:[],
+    page:'',
+    examCount:0,
+    examing:false
 }
 
 export default state

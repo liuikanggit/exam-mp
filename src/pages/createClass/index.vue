@@ -115,7 +115,7 @@ export default {
                             beforePage.onLoad()
                         }
                     })
-                }, 1000)
+                }, 500)
             }).catch((code,msg) =>{
                 if(code === 304){
                     this.nameError = true

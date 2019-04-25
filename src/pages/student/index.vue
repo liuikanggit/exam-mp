@@ -5,15 +5,17 @@
             <mine></mine>
         </div>
         <div v-show="index ==='1'" class="content">
-            
+            <exam end></exam>
+            <div class="h-100"></div>
         </div>
         <div v-show="index ==='2'" class="content">
             <exam></exam>
+            <div class="h-100"></div>
         </div>
         <div class="tabBar">
             <i-tab-bar :current="index" @change="handleChange">
-                <i-tab-bar-item key="2" icon="brush" current-icon="brush_fill" title="考试"></i-tab-bar-item>
-                <i-tab-bar-item key="1" icon="dynamic" current-icon="dynamic_fill" count="3" title="成绩"></i-tab-bar-item>
+                <i-tab-bar-item key="2" icon="brush" current-icon="brush_fill" title="考试" :count="examCount"></i-tab-bar-item>
+                <i-tab-bar-item key="1" icon="dynamic" current-icon="dynamic_fill"  title="成绩"></i-tab-bar-item>
                 <i-tab-bar-item key="0" icon="mine" current-icon="mine_fill" title="个人中心"></i-tab-bar-item>
             </i-tab-bar>
         </div>
@@ -26,22 +28,29 @@ import mine from '@/components/mine'
 import exam from '@/components/exam'
 import lkLike from '@/components/lk-like'
 import {mapState,mapMutations} from 'vuex'
-import {SET_INDEX} from '@/store/mutation-types.js'
+import {SET_INDEX,SET_INDEX_SHOW} from '@/store/mutation-types.js'
 export default {
+    onLoad(){
+        
+    },
+    onShow(){
+        this.setIndexShow(true)
+    },
     data() {
         return {
         }
     },
     methods: {
         ...mapMutations({
-           setIndex :SET_INDEX 
+           setIndex :SET_INDEX,
+           setIndexShow:SET_INDEX_SHOW
         }),
         handleChange(e){
             this.setIndex(e.mp.detail.key)
         }
     },
     computed: {
-        ...mapState(['index'])
+        ...mapState(['index','examCount','examing'])
     },
     components:{
         mine,
@@ -54,14 +63,12 @@ export default {
 <style lang="stylus" scoped>
 .wrap
     position relative
-    display flex
-    flex-direction column
     height 100%
     .loading
         height 50rpx
         margin-top -50rpx
     .content
-        height 100%
+        min-height 100%
     .tabBar
         position fixed
         height 110rpx

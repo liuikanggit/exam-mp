@@ -2,7 +2,7 @@
     <div class="wrap theme-background">
         <i-panel title="请向教师或同学询问正确的班级编号">
             <i-input title="班级编号" 
-                :error="error" autofocus type="number" :value="id"
+                :error="error" type="number" :value="id"
                 maxlength="6" @change="change" placeholder="请输入6位班级编号" />
         </i-panel>
         <div v-if="classInfo" style="margin-top:20rpx">
@@ -28,7 +28,10 @@
                 <view slot="footer">创建日期: {{createTime}}</view>
             </i-card>
         </div>
-        <div v-if="classInfo" class="footer"><lk-button @click="join">申请加入</lk-button></div>
+        <div v-if="classInfo" class="footer">
+            <lk-button v-if="!classInfo.inClass" @click="join">申请加入</lk-button>
+            <lk-button v-else @click="share" open-type="share">分享</lk-button>
+        </div>
 
         <i-modal :visible="visible" @ok="ok" @cancel="cancel">
              <i-input :value="password"  :error="error" type="password" maxlength=12  @change="changePassword" placeholder="请输入班级密码" />
@@ -51,6 +54,9 @@ export default {
         if(this.id.length== 6){
             this.searchClass(this.id)
         }
+    },
+    onShareAppMessage(){
+
     },
     created(){
         this.password = ""
@@ -80,6 +86,12 @@ export default {
             this.$api.searchClass(classId).then(classInfo =>{
                 this.error && (this.error=false)
                 this.classInfo = classInfo
+                if(classInfo.inClass){
+                    this.$Toast({
+                        content: '已经在班级了',
+                        type: 'success'
+                    })
+                }
             }).catch(code=>{
                 if(code == -102){
                     this.searchClass(classId)
@@ -103,6 +115,9 @@ export default {
                this.joinClass(this.classInfo.id,"")
            }
         },
+        share(){
+
+        },
         joinClass(classId,password){
             this.$api.joinClass({
                 classId:classId,
@@ -114,6 +129,7 @@ export default {
                 })
                 const pages = getCurrentPages();
                 const beforePage = pages[pages.length -2];
+                if(beforePage.onLoad){
                 setTimeout(() => {
                     this.$Toast.hide()
                     mpvue.navigateBack({
@@ -122,6 +138,11 @@ export default {
                         }
                     })
                 }, 1000)
+                }else{
+                    mpvue.reLaunch({
+                        url:'/pages/index/main'
+                    })
+                }
             })
             this.password = ""
         }

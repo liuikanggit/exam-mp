@@ -28,7 +28,9 @@ export default {
             }else{
                 src = this.$imageHost +'/'+ this.src
             }
-            this.$emit("load",src)
+            if(this.src != defaultImage){
+                this.$emit("load",src)
+            }
             return src
         }   
     },

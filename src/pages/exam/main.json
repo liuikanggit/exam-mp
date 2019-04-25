@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "i-spin": "/static/iView/spin/index",
+        "i-page": "/static/iView/page/index",
+        "i-drawer": "/static/iView/drawer/index",
+        "i-toast": "/static/iView/toast/index"
+    },
+    "navigationBarTitleText": "考试"
+}

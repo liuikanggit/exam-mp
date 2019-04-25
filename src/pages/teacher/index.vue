@@ -5,7 +5,6 @@
             <mine></mine>
         </div>
         <div v-show="index ==='1'" class="content">
-            <button @click="moreIamgeUpload">上传多图</button>
         </div>
         <div v-show="index ==='2'" class="content">
         </div>
@@ -14,7 +13,7 @@
         <div class="tabBar">
             <i-tab-bar :current="index" @change="handleChange">
                 <i-tab-bar-item key="2" icon="brush" current-icon="brush_fill" title="考试"></i-tab-bar-item>
-                <i-tab-bar-item key="1" icon="dynamic" current-icon="dynamic_fill" count="3" title="成绩"></i-tab-bar-item>
+                <i-tab-bar-item key="1" icon="dynamic" current-icon="dynamic_fill" title="试卷"></i-tab-bar-item>
                 <i-tab-bar-item key="0" icon="mine" current-icon="mine_fill" title="个人中心"></i-tab-bar-item>
             </i-tab-bar>
         </div>
@@ -42,11 +41,6 @@ export default {
         }),
         handleChange(e){
             this.setIndex(e.mp.detail.key)
-        },
-        moreIamgeUpload(){
-            this.$api.moreImageUpload(3).then(images=>{
-                console.log(images)
-            })
         }
     },
     computed: {
@@ -70,6 +64,7 @@ export default {
         margin-top -50rpx
     .content
         height 100%
+        margin-bottom 110rpx
     .tabBar
         position fixed
         height 110rpx
